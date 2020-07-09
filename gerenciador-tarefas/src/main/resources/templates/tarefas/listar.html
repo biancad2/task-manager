@@ -2,37 +2,48 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Gerenciador de tarefas  - Listagem</title>
+<title>Gerenciador de tarefas - Listagem</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/signup.css" th:href="@{/css/signup.css}"  />
+<link rel="stylesheet" href="../css/signup.css"
+	th:href="@{/css/signup.css}" />
 
 </head>
 <body>
 	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
 	<div class="container">
 		<h3>Listagem de tarefas</h3>
-		<a href="/tarefas/inserir"class="btn btn-success">Inserir nova tarefa</a>
-		
+		<a href="/tarefas/inserir" class="btn btn-success">Inserir nova
+			tarefa</a>
+
 		<div th:each="tarefa: ${tarefas}" style="margin: 10px">
 			<div class="card bg-light mb-3">
-			<a th:href="@{/tarefas/detalhes/{id}(id=${tarefa.id})}">Detalhes</a>
+				<a th:href="@{/tarefas/detalhes/{id}(id=${tarefa.id})}">Detalhes</a>
 				<div class="card-header" th:text="${tarefa.titulo}"></div>
 				<div class="card-body">
-					<p class="card-text" th:text="${tarefa.descricao}"></p> 
-					<p class="card-text" th:text="${'Data de expiracao: ' + #dates.format(tarefa.dataExpiracao, 'dd/MM/yyyy')}"></p>
-					<p class="card-text"  style="color: green;" th:if="${tarefa.dataExpiracao.after(new java.util.Date())}">Em dia</p> 
-					<p class="card-text"  style="color: red;" th:if="${tarefa.dataExpiracao.before(new java.util.Date())}">Atrasada</p> 
-					
-				
+					<p class="card-text" th:text="${tarefa.descricao}"></p>
+					<p class="card-text"
+						th:text="${'Data de expiracao: ' + #dates.format(tarefa.dataExpiracao, 'dd/MM/yyyy')}"></p>
+					<p class="card-text" style="color: green;"
+						th:if="${tarefa.dataExpiracao.after(new java.util.Date())}">Em
+						dia</p>
+					<p class="card-text" style="color: red;"
+						th:if="${tarefa.dataExpiracao.before(new java.util.Date())}">Atrasada</p>
+
+
+				</div>
+				<div><p class="card-text text-muted">Categorias</p></div>
+				<div th:each="categoria: ${tarefa.categorias}" style="margin: 10px" class="cat">
+					<div th:text="${categoria.nome}" class="btn btn-lg btn-primary" disabled></div>
 				</div>
 				<div class="card-footer bg-light">
 					<p>
-						<a th:href="@{/tarefas/alterar/{id}(id=${tarefa.id})}">Alterar</a> |
-						<a th:href="@{/tarefas/excluir/{id}(id=${tarefa.id})}">Excluir</a>  |
-						<a th:if="${!tarefa.concluida}" th:href="@{/tarefas/concluir/{id}(id=${tarefa.id})}">Concluir</a>
+						<a th:href="@{/tarefas/alterar/{id}(id=${tarefa.id})}">Alterar</a>
+						| <a th:href="@{/tarefas/excluir/{id}(id=${tarefa.id})}">Excluir</a>
+						| <a th:if="${!tarefa.concluida}"
+							th:href="@{/tarefas/concluir/{id}(id=${tarefa.id})}">Concluir</a>
 					</p>
 				</div>
-			</div>		
+			</div>
 		</div>
 	</div>
 	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>

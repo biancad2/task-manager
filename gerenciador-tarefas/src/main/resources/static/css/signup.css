@@ -4,5 +4,17 @@
 }
 
 .img-navbar{
-	width: 200px;
+	width: 150px;
+	margin-left: 5%
 }
+
+.categorias{
+	color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    border-radius: .25rem;
+    display: inline-block;
+    padding: 1rem;
+}
+
+.cat{display: inline-block}
