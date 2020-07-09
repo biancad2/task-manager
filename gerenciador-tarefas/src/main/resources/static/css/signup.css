@@ -5,7 +5,7 @@
 
 .img-navbar{
 	width: 150px;
-	margin-left: 5%
+	margin-right: 5%
 }
 
 .categorias{
@@ -17,4 +17,13 @@
     padding: 1rem;
 }
 
-.cat{display: inline-block}
+.cat{display: inline-block; margin-top: 2%}
+
+
+.check{
+	margin: 3%
+}
+
+.cat-check{
+	display: block;
+}

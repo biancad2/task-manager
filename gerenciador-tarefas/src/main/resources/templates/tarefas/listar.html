@@ -16,10 +16,12 @@
 			tarefa</a>
 
 		<div th:each="tarefa: ${tarefas}" style="margin: 10px">
-			<div class="card bg-light mb-3">
-				<a th:href="@{/tarefas/detalhes/{id}(id=${tarefa.id})}">Detalhes</a>
+			<div class="card bg-light mb-3" >
+				
 				<div class="card-header" th:text="${tarefa.titulo}"></div>
+				
 				<div class="card-body">
+				<a th:href="@{/tarefas/detalhes/{id}(id=${tarefa.id})}">Detalhes</a>
 					<p class="card-text" th:text="${tarefa.descricao}"></p>
 					<p class="card-text"
 						th:text="${'Data de expiracao: ' + #dates.format(tarefa.dataExpiracao, 'dd/MM/yyyy')}"></p>
@@ -29,12 +31,12 @@
 					<p class="card-text" style="color: red;"
 						th:if="${tarefa.dataExpiracao.before(new java.util.Date())}">Atrasada</p>
 
-
-				</div>
 				<div><p class="card-text text-muted">Categorias</p></div>
-				<div th:each="categoria: ${tarefa.categorias}" style="margin: 10px" class="cat">
-					<div th:text="${categoria.nome}" class="btn btn-lg btn-primary" disabled></div>
+				<div th:each="categoria: ${tarefa.categorias}" class="cat">
+					<div th:text="${categoria.nome}" class="btn btn-sm btn-primary" disabled></div>
 				</div>
+				</div>
+				
 				<div class="card-footer bg-light">
 					<p>
 						<a th:href="@{/tarefas/alterar/{id}(id=${tarefa.id})}">Alterar</a>

@@ -49,14 +49,14 @@
 						class="form-control" th:field="*{dataExpiracao}">
 				</div>
 			</div>
-
+			<div class="cat-check">
 			<label> 
 			<input type="checkbox" th:each="categoria : ${categorias}"
 				name="categorias" th:value="${categoria.id}"
 				th:field="*{categorias}"
-				th:text="${categoria.nome}" />
+				th:text="${categoria.nome}" class="check"/>
 			</label>
-
+			</div>
 
 			<button type="
 				submit" class="btn btn-primary">Salvar</button>
