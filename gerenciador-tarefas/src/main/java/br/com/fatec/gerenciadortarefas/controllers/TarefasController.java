@@ -45,6 +45,16 @@ public class TarefasController {
 		return mv;
 	}
 	
+	@GetMapping("/detalhes/{id}")
+	public ModelAndView listarCat(@PathVariable("id") Long id ) {
+		ModelAndView mv = new ModelAndView();
+		Tarefa tarefa = repositorioTarefa.getOne(id);
+		mv.setViewName("tarefas/detalhes");
+		mv.addObject("tarefa", tarefa);
+		mv.addObject("categorias", tarefa.getCategorias());
+		return mv;
+	}
+	
 	@GetMapping("/inserir")
 	public ModelAndView inserir() {
 		ModelAndView mv = new ModelAndView();

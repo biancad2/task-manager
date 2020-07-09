@@ -15,6 +15,7 @@
 		
 		<div th:each="tarefa: ${tarefas}" style="margin: 10px">
 			<div class="card bg-light mb-3">
+			<a th:href="@{/tarefas/detalhes/{id}(id=${tarefa.id})}">Detalhes</a>
 				<div class="card-header" th:text="${tarefa.titulo}"></div>
 				<div class="card-body">
 					<p class="card-text" th:text="${tarefa.descricao}"></p> 
