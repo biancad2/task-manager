@@ -10,7 +10,7 @@
 <body>
 	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
 	<div class="container">
-		<h3>Alteraçao de tarefa</h3>
+		<h3>Alterar de tarefa</h3>
 		<form class="form-horizontal" action="/tarefas/inserir" method="post"
 			th:object="${tarefa}">
 			<input type="hidden" th:field="*{id}">
