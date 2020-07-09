@@ -2,16 +2,29 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Gerenciador de tarefas - página inicial</title>
+<title>Gerenciador de tarefas</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/home.css" th:href="@{/css/home.css}"  />
+
 </head>
 <body>
 	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
 	<div class="container">
+<<<<<<< HEAD
 		<h1>Olá, seja bem-vindo ao Gerenciador de Tarefas!</h1>
 		<h2>O que deseja fazer hoje?</h2>
 		<p th:text="${mensagem}"></p>
 		<button href="/tarefas/inserir" class="btn btn-success">Adicionar Tarefa</button>
+=======
+
+		<p th:text="${mensagem}">oi</p>
+		<h2>Qual tarefa voce deseja adicionar hj?</h2>
+		
+		
+		
+		<a href="/tarefas/inserir"class="btn btn-success">Inserir nova tarefa</a>
+		
+>>>>>>> 188c5bd789ce0e3325dab5ea41b33d0111634a26
 	</div>
 	
 	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
