@@ -4,10 +4,14 @@
 <meta charset="UTF-8">
 <title>Gerenciador de tarefas - Inclusao de usuario</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/signup.css" th:href="@{/css/signup.css}"  />
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">Gerenciador de Tarefas</a>
+	<div>
+	<img th:src="@{/images/NovaTarefa.png}" class="img-navbar"><a class="nav-item nav-link" href="/"></a>
+	</div>	
+		<a class="navbar-brand" href="#"> </a>
 	</nav>
 	<div class="container">
 		<h3> Cadastro de novo usuario</h3>
@@ -38,7 +42,9 @@
 			</div>
 
 	
-			<button type="submit" class="btn btn-primary">Salvar!</button>
+			<button type="submit" class="btn btn-primary">Salvar</button>
+			<span><a href="/login">Sair</a></span>
+			
 
 		</form>
 	</div>

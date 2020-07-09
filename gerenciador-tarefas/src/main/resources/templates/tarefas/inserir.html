@@ -2,13 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Gerenciador de tarefas - Inclusao de tafas</title>
+<title>Gerenciador de tarefas - Inclusao de tarefas</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/signup.css" th:href="@{/css/signup.css}"  />
+
 </head>
 <body>
 	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
 	<div class="container">
-		<h3>Inserçao de nova tarefa</h3>
+		<h3>Inserir nova tarefa</h3>
 		<form class="form-horizontal" action="/tarefas/inserir" method="post"
 			th:object="${tarefa}">
 			<div class="row">
