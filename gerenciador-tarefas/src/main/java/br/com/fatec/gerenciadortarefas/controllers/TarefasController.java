@@ -2,6 +2,7 @@ package br.com.fatec.gerenciadortarefas.controllers;
 
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -14,8 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.fatec.gerenciadortarefas.modelos.Categoria;
 import br.com.fatec.gerenciadortarefas.modelos.Tarefa;
 import br.com.fatec.gerenciadortarefas.modelos.Usuario;
+import br.com.fatec.gerenciadortarefas.repositorios.RepositorioCategoria;
 import br.com.fatec.gerenciadortarefas.repositorios.RepositorioTarefa;
 import br.com.fatec.gerenciadortarefas.servicos.ServicoUsuario;
 
@@ -28,6 +31,10 @@ public class TarefasController {
 	
 	@Autowired
 	private ServicoUsuario servicoUsuario;
+	
+	@Autowired
+	private RepositorioCategoria repositorioCategoria;
+	
 
 	@GetMapping("/listar")
 	public ModelAndView listar(HttpServletRequest request ) {
@@ -43,6 +50,9 @@ public class TarefasController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("tarefas/inserir");
 		mv.addObject("tarefa", new Tarefa());
+		List<Categoria> categorias = (List<Categoria>) repositorioCategoria.findAll();
+        
+        mv.addObject("categorias", categorias);
 		return mv;
 		
 	}
@@ -67,6 +77,8 @@ public class TarefasController {
 			tarefa.setUsuario(usuarioLogado);
 			repositorioTarefa.save(tarefa);
 			mv.setViewName("redirect:/tarefas/listar");
+			
+			
 		}
 		return mv;
 	}

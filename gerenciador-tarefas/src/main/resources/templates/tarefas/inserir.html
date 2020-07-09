@@ -13,38 +13,51 @@
 			th:object="${tarefa}">
 			<div class="row">
 				<div class="form-group col-md-6">
-					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('titulo')}">
+					<div class="alert alert-danger" role="alert"
+						th:if="${#fields.hasErrors('titulo')}">
 						<label th:errors="*{titulo}" class="validation-message"></label>
 					</div>
-					
-					<label>Titulo:</label> 
-						<input type="text" class="form-control" th:field="*{titulo}">
+
+					<label>Titulo:</label> <input type="text" class="form-control"
+						th:field="*{titulo}">
 				</div>
 			</div>
 
 
 			<div class="row">
 				<div class="form-group col-md-6">
-					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('descricao')}">
+					<div class="alert alert-danger" role="alert"
+						th:if="${#fields.hasErrors('descricao')}">
 						<label th:errors="*{descricao}" class="validation-message"></label>
 					</div>
 
-					<label>Descriçao:</label>
-						<input type="text" class="form-control" th:field="*{descricao}">
+					<label>Descriçao:</label> <input type="text" class="form-control"
+						th:field="*{descricao}">
 				</div>
 			</div>
 
 
 			<div class="row">
 				<div class="form-group col-md-6">
-					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('dataExpiracao')}">
+					<div class="alert alert-danger" role="alert"
+						th:if="${#fields.hasErrors('dataExpiracao')}">
 						<label th:errors="*{dataExpiracao}" class="validation-message"></label>
 					</div>
-					<label>Data de expiraçao:</label> 
-						<input type="date" class="form-control" th:field="*{dataExpiracao}">
+					<label>Data de expiraçao:</label> <input type="date"
+						class="form-control" th:field="*{dataExpiracao}">
 				</div>
 			</div>
-			<button type="submit" class="btn btn-primary">Salvar</button>
+
+			<label> 
+			<input type="checkbox" th:each="categoria : ${categorias}"
+				name="categorias" th:value="${categoria.id}"
+				th:field="*{categorias}"
+				th:text="${categoria.nome}" />
+			</label>
+
+
+			<button type="
+				submit" class="btn btn-primary">Salvar</button>
 
 		</form>
 	</div>

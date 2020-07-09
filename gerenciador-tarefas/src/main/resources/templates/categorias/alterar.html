@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Gerenciador de tarefas - Inclusao de categorias</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
+	<div class="container">
+		<h3>Alteraçao de Categoria</h3>
+		<form class="form-horizontal" action="/categorias/inserir" method="post"
+			th:object="${categoria}">
+			<input type="hidden" th:field="*{id}">
+			
+			<div class="row">
+				<div class="form-group col-md-6">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nome')}">
+						<label th:errors="*{nome}" class="validation-message"></label>
+					</div>
+					
+					<label>Titulo:</label> 
+						<input type="text" class="form-control" th:field="*{nome}">
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="form-group col-md-6">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('descricao')}">
+						<label th:errors="*{descricao}" class="validation-message"></label>
+					</div>
+
+					<label>Descricao:</label>
+						<input type="text" class="form-control" th:field="*{descricao}">
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Salvar</button>
+
+		</form>
+	</div>
+
+
+
+	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
