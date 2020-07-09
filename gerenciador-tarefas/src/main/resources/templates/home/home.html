@@ -10,6 +10,12 @@
 <body>
 	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
 	<div class="container">
+<<<<<<< HEAD
+		<h1>Olá, seja bem-vindo ao Gerenciador de Tarefas!</h1>
+		<h2>O que deseja fazer hoje?</h2>
+		<p th:text="${mensagem}"></p>
+		<button href="/tarefas/inserir" class="btn btn-success">Adicionar Tarefa</button>
+=======
 
 		<p th:text="${mensagem}"></p>
 		<h2>Qual tarefa você deseja adicionar hj?</h2>
@@ -18,6 +24,7 @@
 		
 		<a href="/tarefas/inserir"class="btn btn-success">Inserir nova tarefa</a>
 		
+>>>>>>> 188c5bd789ce0e3325dab5ea41b33d0111634a26
 	</div>
 	
 	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
