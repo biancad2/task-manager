@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Gerenciador de tarefas - Inclusao de usuario</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Gerenciador de Tarefas</a>
+	</nav>
+	<div class="container">
+		<h3> Cadastro de novo usuario</h3>
+		<form class="form-horizontal" action="/registration" method="post"
+			th:object="${usuario}">
+			<div class="row">
+				<div class="form-group col-md-6">
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}">
+						<label th:errors="*{email}" class="validation-message"></label>
+					</div>
+
+					<label>Email:</label> <input type="text" class="form-control"
+						th:field="*{Email}">
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="form-group col-md-6">
+					<div class="alert alert-danger" role="alert"
+						th:if="${#fields.hasErrors('senha')}">
+						<label th:errors="*{senha}" class="validation-message"></label>
+					</div>
+
+					<label>Senha:</label> <input type="password" class="form-control"
+						th:field="*{senha}">
+				</div>
+			</div>
+
+	
+			<button type="submit" class="btn btn-primary">Salvar!</button>
+
+		</form>
+	</div>
+
+
+
+	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
